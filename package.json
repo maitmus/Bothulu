@@ -1,0 +1,15 @@
+{
+  "name": "dice_bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "MaiT-027 <mytmicekorea@naver.com>",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^8.2.0",
+    "discord.js": "^14.11.0",
+    "nodemon": "^3.0.1"
+  },
+  "scripts": {
+    "dev": "concurrently \"tsc -w\" \"nodemon index.js\""
+  }
+}
