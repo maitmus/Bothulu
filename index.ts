@@ -26,7 +26,7 @@ client.on("messageCreate", (message) => {
     case "help":
       const embed = new EmbedBuilder({ title: "명령어" })
         .addFields({
-          name: "!d 눈금 눈금 눈금...(Dice)",
+          name: "!d 눈금 눈금 눈금... (Dice)",
           value: "눈금들에 해당하는 다이스를 각각 굴려줍니다.",
         })
         .addFields({
@@ -34,11 +34,11 @@ client.on("messageCreate", (message) => {
           value: "캐릭터 제작 시 특성치를 자동으로 결정해줍니다.",
         })
         .addFields({
-          name: "!a 기능수치 기능수치(Against)",
+          name: "!a 기능수치 기능수치 (Against)",
           value: "두 플레이어의 기능 대항 판정을 해 줍니다.",
         })
         .addFields({
-          name: "!cr 근접전수치 회피/반격수치 피해(nDm) 피해보너스(nDm) 반격데미지(nDm/수치)(Close-Range)",
+          name: "!cr 근접전수치 회피/반격수치 피해(nDm) 피해보너스(nDm) 반격데미지(nDm/수치) (Close-Range)",
           value: "근접전에 대한 판정을 해줍니다.",
         });
       message.channel.send({ embeds: [embed] });
@@ -123,7 +123,7 @@ client.on("messageCreate", (message) => {
     message.channel.send({ embeds: [embed] });
   }
 
-  if (content.startsWith("d")) {
+  if (content.startsWith("d ")) {
     const diceNumbers = content.replace("d ", "").split(" ");
     const embed = new EmbedBuilder({
       title: `${message.author.username}의 주사위 결과`,
@@ -145,7 +145,7 @@ client.on("messageCreate", (message) => {
     message.channel.send({ embeds: [embed] });
   }
 
-  if (content.startsWith("a")) {
+  if (content.startsWith("a ")) {
     const amounts = content.replace("a ", "").split(" ");
     if (amounts.length != 2) {
       message.channel.send("잘못 입력하셨습니다. 사용법: !a 기능수치 기능수치");
@@ -242,7 +242,7 @@ client.on("messageCreate", (message) => {
     }
   }
 
-  if (content.startsWith("cr")) {
+  if (content.startsWith("cr ")) {
     const datas = content.replace("cr ", "").split(" ");
     if (datas.length != 5) {
       message.channel.send(
