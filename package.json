@@ -1,7 +1,6 @@
 {
   "name": "dice_bot",
   "version": "1.0.0",
-  "main": "index.js",
   "author": "MaiT-027 <maitmus@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -9,7 +8,8 @@
     "dotenv": "^17.2.2"
   },
   "scripts": {
-    "start": "yarn ts-node index.ts"
+    "start": "yarn ts-node index.ts",
+    "dev": "NODE_ENV=dev yarn ts-node index.ts"
   },
   "devDependencies": {
     "ts-node": "^10.9.2",
