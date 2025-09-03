@@ -32,7 +32,7 @@ client.on("interactionCreate", async (interaction) => {
 });
 
 client.once("clientReady", async () => {
-  client.user?.setPresence({ activities: [{ name: "!명령어" }] });
+  client.user?.setPresence({ activities: [{ name: "/help" }] });
 
   const commandJSON = commands.map((cmd) => cmd.data.toJSON());
   const applicationId = process.env.APPLICATION_ID!;
