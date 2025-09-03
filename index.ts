@@ -1,5 +1,5 @@
 import { Client, EmbedBuilder, GatewayIntentBits } from "discord.js";
-import token from "./auth";
+import "dotenv/config";
 
 const client = new Client({
   intents: [
@@ -354,4 +354,4 @@ client.once("ready", () => {
   console.log(`Bot Ready: ${client.user?.tag}`);
 });
 
-client.login(token);
+client.login(process.env.DISCORD_TOKEN);

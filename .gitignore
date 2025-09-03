@@ -1,3 +1,5 @@
-auth.ts
-auth.js
 node_modules
+
+.env
+
+index.js
