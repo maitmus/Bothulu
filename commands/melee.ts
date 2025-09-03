@@ -114,7 +114,7 @@ async function handleMelee(interaction: BaseInteraction) {
       0
     );
 
-    const msg =
+    const message =
       `근접전 D100: ${attackRoll}, 방어 D100: ${defenseRoll}\n` +
       `공격 성공 수준: ${attackerLevel}, 방어 성공 수준: ${defenderLevel}` +
       `\n대미지: ${damageRolls.join(" ")}${
@@ -127,7 +127,7 @@ async function handleMelee(interaction: BaseInteraction) {
 
     embed.addFields({
       name: "공격자 승리 - 피해 계산",
-      value: msg,
+      value: message,
     });
     interaction.reply({ embeds: [embed] });
   }

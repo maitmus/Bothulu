@@ -5,7 +5,7 @@ import { commandMap, commands } from "./commands/interface/commandMap";
 
 dotenv.config();
 
-const NODE_ENV = process.env.NODE_ENV || "dev";
+const NODE_ENV = process.env.NODE_ENV ?? "prod";
 const envPath = path.resolve(process.cwd(), `.env.${NODE_ENV}`);
 dotenv.config({ path: envPath });
 
@@ -43,6 +43,13 @@ client.once("clientReady", async () => {
       { body: commandJSON }
     );
   }
+
+  if (NODE_ENV == "prod") {
+    await rest.put(Routes.applicationCommands(applicationId), {
+      body: commandJSON,
+    });
+  }
+
   console.log(`Bot Ready: ${client.user?.tag}`);
 });
 
