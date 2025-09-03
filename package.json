@@ -9,6 +9,10 @@
     "dotenv": "^17.2.2"
   },
   "scripts": {
-    "dev": "concurrently \"tsc -w\" \"nodemon index.js\""
+    "start": "yarn ts-node index.ts"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
   }
 }

@@ -349,7 +349,7 @@ client.on("messageCreate", (message) => {
   }
 });
 
-client.once("ready", () => {
+client.once("clientReady", () => {
   client.user?.setPresence({ activities: [{ name: "!명령어" }] });
   console.log(`Bot Ready: ${client.user?.tag}`);
 });
