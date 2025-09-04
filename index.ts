@@ -2,6 +2,7 @@ import { Client, GatewayIntentBits, REST, Routes } from "discord.js";
 import * as dotenv from "dotenv";
 import * as path from "path";
 import { commandMap, commands } from "./commands/interface/commandMap";
+import logger from "./logger/logger";
 
 dotenv.config();
 
@@ -9,7 +10,7 @@ const NODE_ENV = process.env.NODE_ENV ?? "prod";
 const envPath = path.resolve(process.cwd(), `.env.${NODE_ENV}`);
 dotenv.config({ path: envPath });
 
-console.log(`현재 환경: ${NODE_ENV}`);
+logger.info(`현재 환경: ${process.env.NODE_ENV}`);
 
 const client = new Client({
   intents: [
@@ -42,6 +43,7 @@ client.once("clientReady", async () => {
       Routes.applicationGuildCommands(applicationId, TEST_GUILD_ID),
       { body: commandJSON }
     );
+    logger.debug(`${TEST_GUILD_ID} 서버에 커맨드 적용 완료`);
   }
 
   if (NODE_ENV == "prod") {
@@ -50,7 +52,7 @@ client.once("clientReady", async () => {
     });
   }
 
-  console.log(`Bot Ready: ${client.user?.tag}`);
+  logger.info(`봇 준비 완료: ${client.user?.tag}`);
 });
 
 client.login(process.env.DISCORD_TOKEN);
