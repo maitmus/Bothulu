@@ -62,7 +62,7 @@ async function handleMelee(interaction: BaseInteraction) {
     // 반격 성공 처리
     const [count, sides] = counterInput.split("d").map((v) => parseInt(v));
     if (isNaN(count) || isNaN(sides)) {
-      interaction.reply("반격 대미지를 잘못 입력하셨습니다.");
+      await interaction.reply("반격 대미지를 잘못 입력하셨습니다.");
       return;
     }
 
@@ -84,7 +84,7 @@ async function handleMelee(interaction: BaseInteraction) {
       name: "방어자 승리 - 회피/반격 성공",
       value: counterMessage,
     });
-    interaction.reply({ embeds: [embed] });
+    await interaction.reply({ embeds: [embed] });
   } else {
     // 공격 성공 → 피해 및 보너스 계산
     const parseDice = (input: string): number[] => {
@@ -105,7 +105,7 @@ async function handleMelee(interaction: BaseInteraction) {
     const bonusRolls = parseDice(bonusInput);
 
     if (damageRolls.length === 0 || bonusRolls.length === 0) {
-      interaction.reply("대미지나 보너스 값을 잘못 입력하셨습니다.");
+      await interaction.reply("대미지나 보너스 값을 잘못 입력하셨습니다.");
       return;
     }
 
@@ -129,8 +129,9 @@ async function handleMelee(interaction: BaseInteraction) {
       name: "공격자 승리 - 피해 계산",
       value: message,
     });
-    interaction.reply({ embeds: [embed] });
   }
+
+  await interaction.reply({ embeds: [embed] });
 }
 
 // 커맨드 등록

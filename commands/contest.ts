@@ -119,7 +119,7 @@ async function handleContest(interaction: BaseInteraction) {
         });
       }
     }
-
-    await interaction.reply({ embeds: [embed] });
   }
+
+  await interaction.reply({ embeds: [embed] });
 }
