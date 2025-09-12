@@ -38,7 +38,7 @@ client.once("clientReady", async () => {
   const commandJSON = commands.map((cmd) => cmd.data.toJSON());
   const applicationId = process.env.APPLICATION_ID!;
 
-  //테스트 가동 시 테스트 길드에만 커맨드 전파
+  //테스트 가동 시 테스트 서버에만 커맨드 전파
   if (TEST_GUILD_ID) {
     await rest.put(
       Routes.applicationGuildCommands(applicationId, TEST_GUILD_ID),
