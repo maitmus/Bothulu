@@ -1,17 +1,11 @@
 name: Release Deploy
 
-on:
-  pull_request_target:
-    branches:
-      - main
-    types:
-      - closed
+on: [pull_request]
 
 jobs:
   build-and-deploy:
     if: >
-      github.event.pull_request.merged == true &&
-      startsWith(github.event.pull_request.head.ref, 'release/')
+      startsWith(github.head.ref, 'release/')
     runs-on: ubuntu-latest
 
     steps:
