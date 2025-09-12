@@ -85,6 +85,7 @@ async function handleMelee(interaction: BaseInteraction) {
       value: counterMessage,
     });
     await interaction.reply({ embeds: [embed] });
+    return;
   } else {
     // 공격 성공 → 피해 및 보너스 계산
     const parseDice = (input: string): number[] => {
