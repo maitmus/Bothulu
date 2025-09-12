@@ -1,14 +1,15 @@
 name: Release Deploy
 
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
-      - main
+      - main    # PR의 base branch가 main인 경우만
 
 jobs:
   build-and-deploy:
-    if: >
-      startsWith(github.head.ref, 'release/')
+    if: ${{ github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'release/') }}
     runs-on: ubuntu-latest
 
     steps:
