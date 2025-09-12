@@ -46,6 +46,7 @@ client.once("clientReady", async () => {
     logger.debug(`${TEST_GUILD_ID} 서버에 커맨드 적용 완료`);
   }
 
+  //프로덕션 가동 시 커맨드 전파
   if (NODE_ENV == "prod") {
     await rest.put(Routes.applicationCommands(applicationId), {
       body: commandJSON,
