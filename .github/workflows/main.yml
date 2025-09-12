@@ -55,7 +55,7 @@ jobs:
             VERSION=${VERSION#release/}
             echo "Deploying version: $VERSION"
 
-            docker pull ${{ steps.login-ecr.outputs.registry }}/my-app:$VERSION
-            docker stop my-app || true
-            docker rm my-app || true
-            docker run -d --name my-app -p 80:80 ${{ steps.login-ecr.outputs.registry }}/my-app:$VERSION
+            docker pull ${{ steps.login-ecr.outputs.registry }}/bothulu:$VERSION
+            docker stop bothulu || true
+            docker rm bothulu || true
+            docker run -d --name bothulu -p 80:80 ${{ steps.login-ecr.outputs.registry }}/bothulu:$VERSION
