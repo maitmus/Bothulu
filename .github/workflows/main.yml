@@ -63,4 +63,4 @@ jobs:
             docker pull ${{ steps.login-ecr.outputs.registry }}/bothulu:$VERSION
             docker stop bothulu || true
             docker rm bothulu || true
-            docker run -d --name bothulu -p 80:80 ${{ steps.login-ecr.outputs.registry }}/bothulu:$VERSION
+            docker run -d --name bothulu -e DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }} -p 80:80 ${{ steps.login-ecr.outputs.registry }}/bothulu:$VERSION
