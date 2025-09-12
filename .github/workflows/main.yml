@@ -40,7 +40,7 @@ jobs:
           VERSION=${IMAGE_TAG#release/}
           echo "Using version tag: $VERSION"
 
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$VERSION .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$VERSION --platform linux/amd64,linux/arm64 .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$VERSION
 
       # 5. 라즈베리 파이에 SSH 접속하여 배포
